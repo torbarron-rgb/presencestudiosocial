@@ -163,7 +163,7 @@ function Index() {
         </div>
       </section>
 
-     {/* Contact */}
+{/* Contact */}
 <section id="contact" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
   <div className="rounded-3xl border border-border bg-card p-10 md:p-16">
     <div className="grid gap-12 md:grid-cols-12">
