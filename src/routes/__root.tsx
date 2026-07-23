@@ -79,10 +79,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Presence Studio — Social media pages for growing businesses" },
       { name: "description", content: "We build and grow social media pages for businesses with little to no online presence. Clear, professional, done-for-you." },
-      { property: "og:title", content: "Presence Studio — Social media for growing businesses" },
-      { property: "og:description", content: "Done-for-you social media pages that help businesses show up, look sharp, and grow." },
+      { property: "og:title", content: "Presence Studio — Social media pages for growing businesses" },
+      { property: "og:description", content: "We build and grow social media pages for businesses with little to no online presence. Clear, professional, done-for-you." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Presence Studio — Social media pages for growing businesses" },
+      { name: "twitter:description", content: "We build and grow social media pages for businesses with little to no online presence. Clear, professional, done-for-you." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/l6Aa3vrgcRgIuTxywXyTZjymVU53/social-images/social-1784804890499-IMG_7487.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/l6Aa3vrgcRgIuTxywXyTZjymVU53/social-images/social-1784804890499-IMG_7487.webp" },
     ],
     links: [
       {
