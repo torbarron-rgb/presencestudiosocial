@@ -163,41 +163,100 @@ function Index() {
         </div>
       </section>
 
-      {/* Contact */}
-      <section id="contact" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-        <div className="rounded-3xl border border-border bg-card p-10 md:p-16">
-          <div className="grid gap-10 md:grid-cols-12 md:items-end">
-            <div className="md:col-span-7">
-              <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">Get in touch</p>
-              <h2 className="font-display text-3xl font-semibold tracking-tight md:text-5xl">
-                Ready to give your business a proper online presence?
-              </h2>
-              <p className="mt-5 max-w-xl text-muted-foreground">
-                Tell us a little about what you do. We&rsquo;ll come back within one business day with
-                a plan and a quote — no pressure.
-              </p>
+     {/* Contact */}
+<section id="contact" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+  <div className="rounded-3xl border border-border bg-card p-10 md:p-16">
+    <div className="grid gap-12 md:grid-cols-12">
+      {/* Left side - text */}
+      <div className="md:col-span-5">
+        <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+          Get in touch
+        </p>
+        <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
+          Ready to give your business a proper online presence?
+        </h2>
+        <p className="mt-5 text-muted-foreground">
+          Tell us a little about what you do. We’ll come back within one business day with a plan and a quote — no pressure.
+        </p>
+      </div>
+
+      {/* Right side - form */}
+      <div className="md:col-span-7">
+        <form
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          className="space-y-5"
+        >
+          {/* Access Key */}
+          <input
+            type="hidden"
+            name="access_key"
+            value="34d00cbd-712e-41a8-85ea-b6ecbaa4769f"
+          />
+
+          {/* Honeypot spam protection */}
+          <input
+            type="checkbox"
+            name="botcheck"
+            className="hidden"
+            style={{ display: "none" }}
+          />
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label className="mb-1.5 block text-sm font-medium">Name</label>
+              <input
+                type="text"
+                name="name"
+                required
+                className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+                placeholder="Your name"
+              />
             </div>
-            <div className="md:col-span-5">
-              <div className="flex flex-col gap-3">
-                <a
-                  href="mailto:hello@presence.studio"
-                  className="inline-flex items-center justify-between rounded-full bg-primary px-6 py-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-                >
-                  hello@presence.studio
-                  <span aria-hidden>→</span>
-                </a>
-                <a
-                  href="#top"
-                  className="inline-flex items-center justify-between rounded-full border border-border bg-background px-6 py-4 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
-                >
-                  Book a 15-min intro call
-                  <span aria-hidden>→</span>
-                </a>
-              </div>
+            <div>
+              <label className="mb-1.5 block text-sm font-medium">Email</label>
+              <input
+                type="email"
+                name="email"
+                required
+                className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+                placeholder="you@example.com"
+              />
             </div>
           </div>
-        </div>
-      </section>
+
+          <div>
+            <label className="mb-1.5 block text-sm font-medium">Business name (optional)</label>
+            <input
+              type="text"
+              name="business"
+              className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+              placeholder="Your business name"
+            />
+          </div>
+
+          <div>
+            <label className="mb-1.5 block text-sm font-medium">Message</label>
+            <textarea
+              name="message"
+              required
+              rows={4}
+              className="w-full resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-1 focus:ring-primary"
+              placeholder="Tell us a bit about your business and what you need..."
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
+          >
+            Send message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
       <footer className="border-t border-border/60">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-6 py-8 text-xs text-muted-foreground md:flex-row md:items-center">
