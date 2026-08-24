@@ -14,16 +14,163 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      link_clicks: {
+        Row: {
+          country: string | null
+          created_at: string
+          id: string
+          link_id: string
+          referrer: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          country?: string | null
+          created_at?: string
+          id?: string
+          link_id: string
+          referrer?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          country?: string | null
+          created_at?: string
+          id?: string
+          link_id?: string
+          referrer?: string | null
+          user_agent?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "link_clicks_link_id_fkey"
+            columns: ["link_id"]
+            isOneToOne: false
+            referencedRelation: "tracked_links"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      sales: {
+        Row: {
+          amount: number
+          commission: number
+          created_at: string
+          customer_name: string | null
+          id: string
+          link_id: string
+          note: string | null
+          occurred_on: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          amount: number
+          commission?: number
+          created_at?: string
+          customer_name?: string | null
+          id?: string
+          link_id: string
+          note?: string | null
+          occurred_on?: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          amount?: number
+          commission?: number
+          created_at?: string
+          customer_name?: string | null
+          id?: string
+          link_id?: string
+          note?: string | null
+          occurred_on?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sales_link_id_fkey"
+            columns: ["link_id"]
+            isOneToOne: false
+            referencedRelation: "tracked_links"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      tracked_links: {
+        Row: {
+          business_name: string
+          commission_rate: number
+          created_at: string
+          destination_url: string
+          id: string
+          is_active: boolean
+          notes: string | null
+          product_name: string | null
+          slug: string
+          updated_at: string
+        }
+        Insert: {
+          business_name: string
+          commission_rate?: number
+          created_at?: string
+          destination_url: string
+          id?: string
+          is_active?: boolean
+          notes?: string | null
+          product_name?: string | null
+          slug: string
+          updated_at?: string
+        }
+        Update: {
+          business_name?: string
+          commission_rate?: number
+          created_at?: string
+          destination_url?: string
+          id?: string
+          is_active?: boolean
+          notes?: string | null
+          product_name?: string | null
+          slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +297,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const
