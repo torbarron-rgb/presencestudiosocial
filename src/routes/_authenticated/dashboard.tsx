@@ -44,16 +44,16 @@ function Dashboard() {
     queryFn: () => fetchDashboard(),
   });
 
-  const invalidate = () => qc.invalidateQueries({ queryKey: ["dashboard"] });
-  const m = <T,>(fn: (v: T) => Promise<unknown>) =>
-    useMutation({ mutationFn: fn, onSuccess: invalidate });
+  const invalidate = () => {
+    void qc.invalidateQueries({ queryKey: ["dashboard"] });
+  };
 
-  const createMut = m(create);
-  const toggleMut = m(toggle);
-  const deleteLinkMut = m(removeLink);
-  const saleMut = m(newSale);
-  const statusMut = m(saleStatus);
-  const deleteSaleMut = m(removeSale);
+  const createMut = useMutation({ mutationFn: (v: never) => create(v), onSuccess: invalidate });
+  const toggleMut = useMutation({ mutationFn: (v: never) => toggle(v), onSuccess: invalidate });
+  const deleteLinkMut = useMutation({ mutationFn: (v: never) => removeLink(v), onSuccess: invalidate });
+  const saleMut = useMutation({ mutationFn: (v: never) => newSale(v), onSuccess: invalidate });
+  const statusMut = useMutation({ mutationFn: (v: never) => saleStatus(v), onSuccess: invalidate });
+  const deleteSaleMut = useMutation({ mutationFn: (v: never) => removeSale(v), onSuccess: invalidate });
 
   const [form, setForm] = useState({
     business_name: "",
